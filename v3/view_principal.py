@@ -1,4 +1,4 @@
-from PySide2.QtWidgets import QWidget, QApplication, QPushButton
+from PySide2.QtWidgets import QWidget, QApplication, QPushButton, QFrame
 from PySide2.QtGui import QFont
 
 import sys
@@ -41,15 +41,79 @@ class Window(QWidget):
         self.btn_editar.clicked.connect(self.executa_btn_editar)
 
 
-    def executa_btn_cadastrar(self):
-        print("Executando cadastrar")
-    def executa_btn_pesquisar(self):
-        print("Executando pesquisar")
-    def executa_btn_relatorio(self):
-        print("Executando relatorio")
-    def executa_btn_editar(self):
-        print("Executando editar")
+        '''
+        Frame Cadastrar ==============================================================
+        Invisivel ate que seu botao seja clicado
+        '''
+        global frm_cadastrar
+        self.frm_cadastrar = QFrame(self)
+        self.frm_cadastrar.setGeometry(170, 0, 830, 700)
+        self.frm_cadastrar.setStyleSheet("background-color: rgb(255, 0, 0);")
+        self.frm_cadastrar.setVisible(False)
 
+
+        '''
+        Frame Pesquisar ==============================================================
+        Invisivel ate que seu botao seja clicado
+        '''
+        global frm_pesquisar
+        self.frm_pesquisar = QFrame(self)
+        self.frm_pesquisar.setGeometry(170, 0, 830, 700)
+        self.frm_pesquisar.setStyleSheet("background-color: rgb(0, 255, 0);")
+        self.frm_pesquisar.setVisible(False)
+
+        '''
+        Frame Relatorio ==============================================================
+        Invisivel ate que seu botao seja clicado
+        '''
+        global frm_relatorio
+        self.frm_relatorio = QFrame(self)
+        self.frm_relatorio.setGeometry(170, 0, 830, 700)
+        self.frm_relatorio.setStyleSheet("background-color: rgb(0, 0, 255);")
+        self.frm_relatorio.setVisible(False)
+
+        '''
+        Frame Editar ==============================================================
+        Invisivel ate que seu botao seja clicado
+        '''
+        global frm_editar
+        self.frm_editar = QFrame(self)
+        self.frm_editar.setGeometry(170, 0, 830, 700)
+        self.frm_editar.setStyleSheet("background-color: rgb(255, 255, 0);")
+        self.frm_editar.setVisible(False)
+
+        global all_frames
+        all_frames = (self.frm_cadastrar, self.frm_pesquisar, 
+                      self.frm_relatorio, self.frm_editar)
+    
+    
+    def ocultar_frames(self):
+        global all_frames
+        for frame in all_frames: ### AQUI ELE USOU SELF.ALL_FRAMES E NO MEU ISSO DEU ERRO, PQ ?????????????
+            if frame.isVisible() == True:
+                frame.setVisible(False)
+
+
+    def executa_btn_cadastrar(self):
+        global frm_cadastrar
+        self.ocultar_frames()
+        self.frm_cadastrar.setVisible(True)
+
+    def executa_btn_pesquisar(self):
+        global frm_pedquisar
+        self.ocultar_frames()
+        self.frm_pesquisar.setVisible(True)
+
+    def executa_btn_relatorio(self):
+        global frm_relatorio
+        self.ocultar_frames()
+        self.frm_relatorio.setVisible(True)
+        
+    def executa_btn_editar(self):
+        global frm_editar
+        self.ocultar_frames()
+        self.frm_editar.setVisible(True)
+        
 
 def executa():
 
