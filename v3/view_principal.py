@@ -60,19 +60,19 @@ class Window(QWidget):
         self.lbl_cpf.setGeometry(20, 130, 55, 16)
 
         self.txt_nome = QLineEdit(self.frm_cadastrar)
-        self.txt_nome.setGeometry(90, 50, 721, 22)
+        self.txt_nome.setGeometry(90, 50, 711, 22)
 
         self.txt_endereco = QLineEdit(self.frm_cadastrar)
-        self.txt_endereco.setGeometry(90, 90, 721, 22)
+        self.txt_endereco.setGeometry(90, 90, 711, 22)
 
         self.txt_cpf = QLineEdit(self.frm_cadastrar)
-        self.txt_cpf.setGeometry(90, 130, 721, 22)
+        self.txt_cpf.setGeometry(90, 130, 711, 22)
 
         self.btn_limpar = QPushButton('Limpar', self.frm_cadastrar)
-        self.btn_limpar.setGeometry(20, 650, 115, 22)
+        self.btn_limpar.setGeometry(20, 650, 100, 22)
 
         self.btn_gravar = QPushButton('Gravar', self.frm_cadastrar)
-        self.btn_gravar.setGeometry(700, 650, 115, 22)
+        self.btn_gravar.setGeometry(700, 650, 100, 22)
 
 
         '''
@@ -89,7 +89,7 @@ class Window(QWidget):
         self.lbl_nome.setGeometry(20, 50, 55, 16)
 
         self.txt_nome = QLineEdit(self.frm_pesquisar)
-        self.txt_nome.setGeometry(90, 50, 600, 22)
+        self.txt_nome.setGeometry(90, 50, 590, 22)
 
         self.btn_pesquisar = QPushButton('Pesquisar', self.frm_pesquisar)
         self.btn_pesquisar.setGeometry(700, 50, 80, 22)
