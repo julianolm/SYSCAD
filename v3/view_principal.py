@@ -7,7 +7,6 @@ class Window(QWidget):
     def __init__(self):
         super().__init__()
         self.setGeometry(200,200,1000,700)
-
         self.setStyleSheet("Background-color: rgb(7, 105, 114);")
 
         self.carregar_formulario()
@@ -83,8 +82,18 @@ class Window(QWidget):
         global frm_pesquisar
         self.frm_pesquisar = QFrame(self)
         self.frm_pesquisar.setGeometry(170, 0, 830, 700)
-        self.frm_pesquisar.setStyleSheet("background-color: rgb(0, 255, 0);")
+        self.frm_pesquisar.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.frm_pesquisar.setVisible(False)
+        
+        self.lbl_nome = QLabel("Nome", self.frm_pesquisar)
+        self.lbl_nome.setGeometry(20, 50, 55, 16)
+
+        self.txt_nome = QLineEdit(self.frm_pesquisar)
+        self.txt_nome.setGeometry(80, 50, 600, 22)
+
+        self.btn_pesquisar = QPushButton('Pesquisar', self.frm_pesquisar)
+        self.btn_pesquisar.setGeometry(700, 50, 80, 22)
+
 
         '''
         Frame Relatorio ==============================================================
