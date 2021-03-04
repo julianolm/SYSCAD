@@ -1,4 +1,4 @@
-from PySide2.QtWidgets import QWidget, QApplication, QPushButton, QFrame, QLabel, QLineEdit
+from PySide2.QtWidgets import QWidget, QApplication, QPushButton, QFrame, QLabel, QLineEdit, QTableView
 from PySide2.QtGui import QFont
 
 import sys
@@ -102,8 +102,11 @@ class Window(QWidget):
         global frm_relatorio
         self.frm_relatorio = QFrame(self)
         self.frm_relatorio.setGeometry(170, 0, 830, 700)
-        self.frm_relatorio.setStyleSheet("background-color: rgb(0, 0, 255);")
+        self.frm_relatorio.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.frm_relatorio.setVisible(False)
+
+        self.tabela = QTableView(self.frm_relatorio)
+        self.tabela.setGeometry(20,20,800,650)
 
         '''
         Frame Editar ==============================================================
@@ -112,8 +115,39 @@ class Window(QWidget):
         global frm_editar
         self.frm_editar = QFrame(self)
         self.frm_editar.setGeometry(170, 0, 830, 700)
-        self.frm_editar.setStyleSheet("background-color: rgb(255, 255, 0);")
+        self.frm_editar.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.frm_editar.setVisible(False)
+
+        self.campo_pesquisa = QLineEdit(self.frm_editar)
+        self.campo_pesquisa.setGeometry(20, 20, 800, 22)
+        self.campo_pesquisa.setPlaceholderText("000.000.000-00")
+
+        self.lbl_nome_edit = QLabel("Nome", self.frm_editar)
+        self.lbl_nome_edit.setGeometry(20, 50, 55, 16)
+        
+        self.lbl_endereco_edit = QLabel("Endereco", self.frm_editar)
+        self.lbl_endereco_edit.setGeometry(20, 90, 65, 16)
+
+        self.lbl_cpf_edit = QLabel("CPF", self.frm_editar)
+        self.lbl_cpf_edit.setGeometry(20, 130, 55, 16)
+
+        self.txt_nome_edit = QLineEdit(self.frm_editar)
+        self.txt_nome_edit.setGeometry(90, 50, 711, 22)
+
+        self.txt_endereco_edit = QLineEdit(self.frm_editar)
+        self.txt_endereco_edit.setGeometry(90, 90, 711, 22)
+
+        self.txt_cpf_edit = QLineEdit(self.frm_editar)
+        self.txt_cpf_edit.setGeometry(90, 130, 711, 22)
+
+        self.btn_limpar_edit = QPushButton('Limpar', self.frm_editar)
+        self.btn_limpar_edit.setGeometry(20, 650, 100, 22)
+
+        self.btn_gravar_edit = QPushButton('Gravar', self.frm_editar)
+        self.btn_gravar_edit.setGeometry(700, 650, 100, 22)
+
+
+
 
         global all_frames
         all_frames = (self.frm_cadastrar, self.frm_pesquisar, 
